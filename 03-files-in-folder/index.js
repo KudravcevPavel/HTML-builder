@@ -9,7 +9,7 @@ fs.readdir(folderForTest, { withFileTypes: true }, (err, files) => {
       let filesFolder = path.join(__dirname, `secret-folder/${file.name}`);
       fs.stat(filesFolder, (err, stats) => {
         if (err) throw err;
-        console.log(`${path.basename(file.name)} - ${stats.size}kb`);
+        console.log(`${path.basename(file.name)} - ${stats.size / 1000 + 'kb'}`);
       });
     }
   }

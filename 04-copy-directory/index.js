@@ -12,7 +12,7 @@ const error = (err) => {
 };
 
 const cloneFolder = async () => {
-  await fsPromises.rmdir(copyFolder, { recursive: true });
+  await fsPromises.rm(copyFolder, { recursive: true, force: true });
 
   await fsPromises.mkdir(copyFolder, { recursive: true }).then(() => {
     fs.readdir(folderForTest, async (_, files) => {
